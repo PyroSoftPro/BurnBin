@@ -1,0 +1,6 @@
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# Optional: For building standalone executable
+# pyinstaller>=5.13.0
+
