@@ -44,7 +44,7 @@ echo This may take a few minutes...
 echo.
 
 REM Build with PyInstaller using spec file
-pyinstaller BurnBin.spec
+python -m PyInstaller BurnBin.spec
 
 if errorlevel 1 (
     echo.

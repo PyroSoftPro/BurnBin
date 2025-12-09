@@ -1538,11 +1538,17 @@ class FileShareApp:
     def check_cloudflared_installed(self):
         """Check if cloudflared is installed and available"""
         try:
+            # Hide console window on Windows
+            creation_flags = 0
+            if sys.platform == 'win32':
+                creation_flags = subprocess.CREATE_NO_WINDOW
+            
             result = subprocess.run(
                 ['cloudflared', '--version'],
                 capture_output=True,
                 text=True,
-                timeout=5
+                timeout=5,
+                creationflags=creation_flags
             )
             return result.returncode == 0
         except (FileNotFoundError, subprocess.TimeoutExpired):
@@ -1560,12 +1566,19 @@ class FileShareApp:
                 # Start tunnel with a small delay to avoid rapid reconnections
                 self.log_activity("Starting Cloudflare Tunnel...")
                 time.sleep(0.5)  # Small delay to avoid rapid tunnel creation
+                
+                # Hide console window on Windows
+                creation_flags = 0
+                if sys.platform == 'win32':
+                    creation_flags = subprocess.CREATE_NO_WINDOW
+                
                 process = subprocess.Popen(
                     ['cloudflared', 'tunnel', '--url', f'http://127.0.0.1:{self.local_port}'],
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT,
                     text=True,
-                    bufsize=1
+                    bufsize=1,
+                    creationflags=creation_flags
                 )
                 
                 self.cloudflare_process = process
@@ -1657,8 +1670,9 @@ class FileShareApp:
         try:
             import ctypes
             if ctypes.windll.shell32.IsUserAnAdmin():
-                # Already admin, run directly
-                subprocess.Popen([installer_path], shell=True)
+                # Already admin, run directly (hide console window)
+                creation_flags = subprocess.CREATE_NO_WINDOW if sys.platform == 'win32' else 0
+                subprocess.Popen([installer_path], shell=True, creationflags=creation_flags)
             else:
                 # Request admin privileges
                 ctypes.windll.shell32.ShellExecuteW(
