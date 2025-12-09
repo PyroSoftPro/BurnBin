@@ -1,8 +1,8 @@
 # 🔥 BurnBin - Easy File Sharing
 
-A simple, user-friendly Python application that allows you to share files online with public links using Cloudflare Tunnel.
+A simple, user-friendly Python application that allows you to share files online with public links using Cloudflare Tunnel. 
 
-**By PyroSoft Productions** - https://pyrosoft.pro/
+Note: This project uses a dual-license model. The code is open source but the binaries fall under an EULA. Consider it dono-ware. :)
 
 ## Features
 
