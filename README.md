@@ -141,9 +141,25 @@ A simple, user-friendly Python application that allows you to share files online
 - Close the application to stop serving files
 - Cloudflare Tunnel provides secure HTTPS connections
 
-## License
+## Licensing
 
-This project is provided as-is for personal use.
+This project uses a dual-license model:
+
+### Source Code License (Open Source)
+The source code in this repository is licensed under the **MIT License**
+and is jointly owned by **PyroSoft Productions and Playcast.io**.
+
+You are free to view, modify, fork, and build the software from source under
+the terms of the MIT License.
+
+### Compiled Binary License (Commercial)
+Official builds, installers, and distributed binaries are licensed
+separately under the **PyroSoft Productions Commercial License**.
+
+Use of the binary requires a valid purchase, subscription, or authorization
+from PyroSoft Productions. Redistribution of the binary is prohibited.
+
+See `COMMERCIAL_LICENSE.txt` for full terms.
 
 ## Support
 
