@@ -156,9 +156,6 @@ the terms of the MIT License.
 Official builds, installers, and distributed binaries are licensed
 separately under the **PyroSoft Productions Commercial License**.
 
-Use of the binary requires a valid purchase, subscription, or authorization
-from PyroSoft Productions. Redistribution of the binary is prohibited.
-
 See `COMMERCIAL_LICENSE.txt` for full terms.
 
 ## Support
